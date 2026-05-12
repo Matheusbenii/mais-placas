@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#06070a" />
+<title>+Mais Placas — Sua placa Mercosul em Bauru, hoje</title>
+<meta name="description" content="Perdeu ou precisa trocar a placa? Em Bauru, a gente resolve hoje. Autorização DETRAN-SP, estampagem oficial e delivery. Numa tarde." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   +MAIS PLACAS · v4 mobile-first cinematic
+   ============================================================ */
+:root{
+  --bg:#06070a;
+  --bg-1:#0a0c12;
+  --bg-2:#10131c;
+  --bg-3:#161b27;
+  --line:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --petrol:#0e2a3f;
+  --petrol-2:#15405e;
+  --petrol-glow:rgba(46,148,200,0.18);
+  --ice:#f3f5fa;
+  --ice-2:#c8cdd8;
+  --ice-3:rgba(243,245,250,0.58);
+  --ice-4:rgba(243,245,250,0.38);
+  --gold:#ffd60a;
+  --gold-2:#f5b400;
+  --gold-ink:#1a1300;
+  --whats:#25D366;
+  --whats-2:#1ebd5b;
+  --whats-deep:#128C7E;
+  --metal:linear-gradient(180deg,#e7ecf3 0%,#b6bdca 45%,#8d95a4 55%,#dfe4ec 100%);
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.5),0 8px 24px -10px rgba(0,0,0,0.5);
+  --shadow-md:0 2px 6px rgba(0,0,0,0.6),0 20px 50px -16px rgba(0,0,0,0.7);
+  --shadow-glow:0 0 0 1px rgba(46,148,200,0.20),0 20px 60px -20px rgba(46,148,200,0.45);
+  --shadow-whats:0 10px 30px -8px rgba(37,211,102,0.55),0 0 0 1px rgba(37,211,102,0.18);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--ice)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  padding-bottom:88px; /* room for sticky CTA */
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.03em;line-height:1.02}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.02em}
+
+/* canvas — mobile-first; cap on bigger screens with letterboxing */
+.shell{max-width:480px;margin:0 auto;position:relative;background:var(--bg);overflow:hidden}
+@media (min-width:520px){
+  body{background:#000}
+  .shell{box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 30px 120px -20px rgba(0,0,0,0.9)}
+}
+
+/* ambient light blobs — subtle */
+.ambient{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.ambient::before,.ambient::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(80px);opacity:0.55;
+}
+.ambient::before{width:520px;height:520px;background:radial-gradient(circle,#1d5478 0%,transparent 70%);top:-180px;left:-180px}
+.ambient::after{width:420px;height:420px;background:radial-gradient(circle,#2a4d6b 0%,transparent 70%);top:340px;right:-180px;opacity:0.35}
+
+/* particles */
+.particles{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.particles span{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(255,255,255,0.45);box-shadow:0 0 6px rgba(180,210,255,0.5);animation:drift linear infinite}
+@keyframes drift{
+  0%{transform:translate3d(0,0,0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translate3d(20px,-700px,0);opacity:0}
+}
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(6,7,10,0.78);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:-0.02em}
+.brand .plus{
+  width:24px;height:24px;border-radius:7px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-2) 100%);
+  color:var(--gold-ink);display:grid;place-items:center;font-weight:700;font-size:16px;
+  box-shadow:0 4px 10px -2px rgba(255,214,10,0.4),inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+.brand b{color:var(--ice)}
+.brand i{color:var(--ice-3);font-style:normal;font-weight:500}
+
+.live-status{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ice-2);font-weight:500;letter-spacing:0.02em}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 10px rgba(52,211,153,0.7);position:relative}
+.live-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid rgba(52,211,153,0.55);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{transform:scale(0.6);opacity:1}100%{transform:scale(1.8);opacity:0}}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;padding:28px 20px 40px;overflow:hidden}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 12px 6px 10px;border-radius:999px;
+  background:rgba(255,214,10,0.08);
+  border:1px solid rgba(255,214,10,0.25);
+  color:var(--gold);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  position:relative;z-index:2;
+}
+.hero-eyebrow svg{width:12px;height:12px}
+.hero h1{
+  font-size:42px;line-height:0.98;letter-spacing:-0.045em;font-weight:700;
+  margin-top:18px;position:relative;z-index:2;
+}
+.hero h1 .grad{
+  background:linear-gradient(180deg,#fff 0%,#bbc4d4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero h1 em{
+  font-style:normal;color:var(--gold);
+  text-shadow:0 0 30px rgba(255,214,10,0.35);
+}
+.hero h1 .strike{
+  position:relative;display:inline-block;
+}
+.hero h1 .strike::after{
+  content:"";position:absolute;left:-2%;right:-2%;top:48%;height:6px;
+  background:var(--gold);border-radius:2px;
+  transform:scaleX(0);transform-origin:left;
+  animation:strike 1.1s cubic-bezier(0.7,0,0.2,1) 0.6s forwards;
+}
+@keyframes strike{to{transform:scaleX(1)}}
+
+.hero-sub{margin-top:18px;font-size:16px;line-height:1.5;color:var(--ice-2);max-width:340px;position:relative;z-index:2}
+.hero-sub b{color:var(--ice);font-weight:600}
+
+/* ----- plate scene ----- */
+.plate-scene{
+  position:relative;margin:32px -4px 28px;
+  aspect-ratio:16/10;border-radius:22px;
+  background:
+    radial-gradient(120% 80% at 50% 110%,rgba(46,148,200,0.20) 0%,transparent 60%),
+    linear-gradient(180deg,#0c1118 0%,#070a0f 100%);
+  border:1px solid var(--line);
+  overflow:hidden;
+  isolation:isolate;
+}
+.plate-scene::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 80%);
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 80%);
+  opacity:0.5;
+}
+.plate-scene::after{
+  /* metallic floor reflection */
+  content:"";position:absolute;left:8%;right:8%;bottom:14%;height:14px;
+  background:radial-gradient(ellipse at center,rgba(180,210,255,0.18) 0%,transparent 70%);
+  filter:blur(4px);
+}
+
+.stamp{position:absolute;font-family:'JetBrains Mono';font-size:9px;font-weight:700;letter-spacing:0.18em;color:var(--ice-4);text-transform:uppercase;z-index:3}
+.stamp.tl{top:14px;left:16px}
+.stamp.tr{top:14px;right:16px;color:rgba(255,214,10,0.55)}
+.stamp.bl{bottom:14px;left:16px}
+.stamp.br{bottom:14px;right:16px}
+.stamp .tk{display:inline-flex;align-items:center;gap:6px}
+.stamp .tk::before{content:"";width:5px;height:5px;background:currentColor;border-radius:50%}
+
+/* the plate itself */
+.plate-stage{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:78%;max-width:330px;aspect-ratio:3/1;
+  perspective:800px;
+  z-index:4;
+}
+.plate{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  animation:plate-rise 1.2s cubic-bezier(0.2,0.7,0.2,1) 0.1s both;
+}
+@keyframes plate-rise{
+  0%{transform:translateY(40px) rotateX(-22deg) scale(0.94);opacity:0}
+  100%{transform:translateY(0) rotateX(-6deg) scale(1);opacity:1}
+}
+.plate-body{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,#fbfbf8 0%,#e6e7e3 100%);
+  border-radius:10px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 -2px 6px rgba(0,0,0,0.15) inset,
+    0 20px 40px -12px rgba(0,0,0,0.8),
+    0 0 0 1.5px #0a0a0a,
+    0 0 0 3.5px rgba(255,255,255,0.05);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.plate-top{
+  height:30%;background:linear-gradient(180deg,#0a3cff 0%,#0530c9 100%);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 10px;color:#fff;font-family:'JetBrains Mono';font-weight:700;
+  font-size:9px;letter-spacing:0.18em;
+  position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,0.2) inset;
+}
+.plate-top .flag{width:14px;height:10px;border-radius:1px;background:linear-gradient(90deg,#0a3cff 0 33%,#fff 33% 66%,#0a3cff 66%);box-shadow:0 0 0 0.5px rgba(0,0,0,0.3)}
+.plate-top .ms{color:#fff;text-shadow:0 1px 0 rgba(0,0,0,0.3)}
+.plate-top .br{color:#fff}
+.plate-bottom{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:0;
+  padding:0 14px;
+  position:relative;
+}
+.plate-bottom span{
+  font-family:'JetBrains Mono';font-weight:800;color:#0a0a0a;
+  font-size:clamp(28px,8.5vw,38px);
+  letter-spacing:0.04em;
+  display:inline-block;
+  width:0.7em;text-align:center;
+  opacity:0;transform:translateY(-6px) scale(0.6);
+  animation:char-in 0.18s cubic-bezier(0.2,0.7,0.2,1) forwards;
+}
+.plate-bottom span.gap{width:0.25em;opacity:0}
+@keyframes char-in{
+  0%{opacity:0;transform:translateY(-10px) scale(0.4)}
+  60%{opacity:1;transform:translateY(2px) scale(1.08)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.plate-bottom span:nth-child(1){animation-delay:1.0s}
+.plate-bottom span:nth-child(2){animation-delay:1.12s}
+.plate-bottom span:nth-child(3){animation-delay:1.24s}
+.plate-bottom span:nth-child(5){animation-delay:1.40s}
+.plate-bottom span:nth-child(6){animation-delay:1.52s}
+.plate-bottom span:nth-child(7){animation-delay:1.64s}
+.plate-bottom span:nth-child(8){animation-delay:1.76s}
+
+/* screws */
+.screw{position:absolute;width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#dadfe6 0%,#7a8290 60%,#3d4452 100%);
+  box-shadow:0 1px 1px rgba(0,0,0,0.5),inset 0 0 0 0.5px rgba(0,0,0,0.4);
+  opacity:0;transform:scale(0);
+  animation:screw-in 0.3s cubic-bezier(0.5,1.7,0.5,1) forwards;
+}
+.screw::before,.screw::after{content:"";position:absolute;inset:0;display:block}
+.screw::before{background:linear-gradient(90deg,transparent 45%,rgba(0,0,0,0.5) 45% 55%,transparent 55%)}
+.screw::after{background:linear-gradient(0deg,transparent 45%,rgba(0,0,0,0.5) 45% 55%,transparent 55%);transform:rotate(45deg)}
+.screw.tl{top:6px;left:6px;animation-delay:2.0s}
+.screw.tr{top:6px;right:6px;animation-delay:2.1s}
+.screw.bl{bottom:6px;left:6px;animation-delay:2.2s}
+.screw.br{bottom:6px;right:6px;animation-delay:2.3s}
+@keyframes screw-in{
+  0%{opacity:0;transform:scale(0) rotate(-90deg)}
+  60%{opacity:1;transform:scale(1.4) rotate(20deg)}
+  100%{opacity:1;transform:scale(1) rotate(0deg)}
+}
+
+/* glow sweep */
+.plate-shine{
+  position:absolute;inset:0;border-radius:10px;overflow:hidden;pointer-events:none;
+}
+.plate-shine::before{
+  content:"";position:absolute;top:-10%;bottom:-10%;width:40%;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.55) 50%,transparent 70%);
+  left:-50%;
+  animation:sheen 1.4s cubic-bezier(0.5,0,0.5,1) 2.4s forwards;
+}
+@keyframes sheen{
+  0%{left:-50%;opacity:0}
+  20%{opacity:1}
+  80%{opacity:1}
+  100%{left:140%;opacity:0}
+}
+
+/* flash confirmation */
+.plate-flash{
+  position:absolute;inset:-30%;border-radius:50%;
+  background:radial-gradient(circle,rgba(52,211,153,0.55) 0%,transparent 60%);
+  opacity:0;
+  animation:flash 0.5s ease-out 3.6s forwards;
+  pointer-events:none;
+}
+@keyframes flash{
+  0%{opacity:0;transform:scale(0.6)}
+  40%{opacity:1}
+  100%{opacity:0;transform:scale(1.2)}
+}
+
+/* snap bounce on whole plate at moment of completion */
+.plate{animation:plate-rise 1.2s cubic-bezier(0.2,0.7,0.2,1) 0.1s both,plate-snap 0.4s cubic-bezier(0.5,1.7,0.5,1) 3.5s}
+@keyframes plate-snap{
+  0%,100%{transform:translateY(0) rotateX(-6deg) scale(1)}
+  40%{transform:translateY(-2px) rotateX(-8deg) scale(1.015)}
+}
+
+/* idle reflection after sequence */
+.plate-shine.idle::before{
+  animation:sheen-idle 6s ease-in-out 5s infinite;
+}
+@keyframes sheen-idle{
+  0%,85%{left:-50%;opacity:0}
+  92%{opacity:0.4}
+  100%{left:140%;opacity:0}
+}
+
+/* check seal */
+.confirm-seal{
+  position:absolute;right:18px;bottom:16px;z-index:5;
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,#34d399 0%,#10a673 100%);
+  display:grid;place-items:center;
+  color:#06241a;font-weight:700;
+  box-shadow:0 10px 30px -8px rgba(16,166,115,0.6),inset 0 -2px 6px rgba(0,0,0,0.2);
+  opacity:0;transform:scale(0.3);
+  animation:seal 0.5s cubic-bezier(0.5,1.7,0.5,1) 3.7s forwards;
+}
+.confirm-seal svg{width:24px;height:24px}
+@keyframes seal{to{opacity:1;transform:scale(1)}}
+
+/* time chip */
+.time-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 12px 7px 9px;border-radius:999px;
+  background:rgba(52,211,153,0.10);border:1px solid rgba(52,211,153,0.30);
+  color:#5be3a8;font-size:12px;font-weight:600;letter-spacing:0.02em;
+  margin-top:18px;position:relative;z-index:2;
+  opacity:0;transform:translateY(8px);
+  animation:fade-up 0.6s cubic-bezier(0.2,0.7,0.2,1) 3.9s forwards;
+}
+.time-chip svg{width:14px;height:14px}
+@keyframes fade-up{to{opacity:1;transform:translateY(0)}}
+
+/* ----- hero CTA ----- */
+.cta-block{margin-top:30px;position:relative;z-index:2}
+.btn-whats{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:20px 22px;border-radius:18px;
+  background:linear-gradient(180deg,#2ee578 0%,var(--whats) 60%,var(--whats-2) 100%);
+  color:#04220f;font-family:'Space Grotesk';font-weight:600;
+  font-size:17px;letter-spacing:-0.01em;
+  box-shadow:var(--shadow-whats),inset 0 1px 0 rgba(255,255,255,0.35),inset 0 -2px 4px rgba(0,0,0,0.15);
+  position:relative;overflow:hidden;
+  transition:transform 0.18s cubic-bezier(0.2,0.7,0.2,1);
+}
+.btn-whats::before{
+  content:"";position:absolute;top:0;bottom:0;width:50%;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.4) 50%,transparent 70%);
+  left:-60%;
+  animation:btn-shine 3.5s ease-in-out infinite;
+}
+@keyframes btn-shine{0%,40%{left:-60%}70%,100%{left:120%}}
+.btn-whats:active{transform:scale(0.985)}
+.btn-whats svg{width:22px;height:22px;animation:wbob 1.6s ease-in-out infinite}
+@keyframes wbob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-2px) rotate(-6deg)}}
+.btn-whats span{position:relative;z-index:2}
+
+.cta-foot{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:14px;font-size:13px;color:var(--ice-3);font-weight:500;
+}
+.cta-foot .sep{width:3px;height:3px;border-radius:50%;background:var(--ice-4)}
+
+.trust-row{
+  display:flex;justify-content:space-between;gap:8px;
+  margin-top:24px;padding:14px 4px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.trust-row > div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.trust-row .ti{font-family:'Space Grotesk';font-weight:600;font-size:13px;color:var(--ice);letter-spacing:-0.01em}
+.trust-row .tl{font-size:10px;color:var(--ice-4);text-transform:uppercase;letter-spacing:0.12em;font-weight:500}
+.trust-row .div{width:1px;background:var(--line);flex:0 0 1px}
+
+/* ============================================================
+   SECTION GENERIC
+   ============================================================ */
+section{position:relative;padding:72px 20px;overflow:hidden}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Space Grotesk';font-size:11px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--ice-3);
+}
+.eyebrow .num{
+  color:var(--gold);font-family:'JetBrains Mono';font-weight:800;font-size:11px;
+}
+.eyebrow .line{width:24px;height:1px;background:var(--line-2)}
+.section-title{
+  font-size:34px;line-height:1.02;letter-spacing:-0.04em;font-weight:600;
+  margin-top:14px;color:var(--ice);
+}
+.section-title em{font-style:normal;color:var(--gold)}
+.section-sub{margin-top:14px;font-size:16px;line-height:1.5;color:var(--ice-2);max-width:380px}
+
+/* reveal */
+.r{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.2,0.7,0.2,1),transform 0.9s cubic-bezier(0.2,0.7,0.2,1)}
+.r.in{opacity:1;transform:none}
+.stagger > *{opacity:0;transform:translateY(18px);transition:opacity 0.7s cubic-bezier(0.2,0.7,0.2,1),transform 0.8s cubic-bezier(0.2,0.7,0.2,1)}
+.stagger.in > *:nth-child(1){transition-delay:0.05s;opacity:1;transform:none}
+.stagger.in > *:nth-child(2){transition-delay:0.13s;opacity:1;transform:none}
+.stagger.in > *:nth-child(3){transition-delay:0.21s;opacity:1;transform:none}
+.stagger.in > *:nth-child(4){transition-delay:0.29s;opacity:1;transform:none}
+.stagger.in > *:nth-child(5){transition-delay:0.37s;opacity:1;transform:none}
+.stagger.in > *:nth-child(6){transition-delay:0.45s;opacity:1;transform:none}
+
+/* ============================================================
+   PAIN — DETRAN → Poupatempo → B.O. → Emplacadora
+   ============================================================ */
+.pain{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-1) 100%)}
+.pain-flow{margin-top:34px;display:flex;flex-direction:column;gap:14px;position:relative}
+.pain-step{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:14px;
+  background:rgba(255,255,255,0.025);border:1px solid var(--line);
+  position:relative;
+}
+.pain-step .ic{
+  flex:0 0 40px;width:40px;height:40px;border-radius:11px;
+  background:rgba(255,255,255,0.04);border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--ice-2);
+}
+.pain-step .ic svg{width:20px;height:20px}
+.pain-step .txt{flex:1}
+.pain-step h4{font-size:14px;font-weight:600;color:var(--ice);letter-spacing:-0.01em}
+.pain-step p{font-size:12px;color:var(--ice-3);margin-top:2px}
+.pain-step .tag{
+  font-family:'JetBrains Mono';font-size:10px;font-weight:700;
+  color:#ff6b6b;background:rgba(255,107,107,0.10);
+  border:1px solid rgba(255,107,107,0.25);
+  padding:3px 7px;border-radius:6px;letter-spacing:0.06em;
+}
+/* broken zig-zag connector */
+.pain-conn{
+  position:absolute;left:35px;width:2px;height:18px;
+  background:repeating-linear-gradient(180deg,rgba(255,107,107,0.5) 0 4px,transparent 4px 8px);
+}
+.pain-line-1{top:64px}
+.pain-line-2{top:140px;left:39px;width:2px;transform:rotate(8deg)}
+.pain-line-3{top:218px;left:31px;transform:rotate(-6deg)}
+
+.pain-arrow{align-self:center;margin-top:18px;color:var(--ice-4);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600}
+.pain-answer{
+  margin-top:28px;padding:20px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,214,10,0.08) 0%,rgba(255,214,10,0.02) 100%);
+  border:1px solid rgba(255,214,10,0.25);
+  position:relative;overflow:hidden;
+}
+.pain-answer::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 100% at 100% 0%,rgba(255,214,10,0.18) 0%,transparent 60%);
+  pointer-events:none;
+}
+.pain-answer h3{font-size:24px;font-weight:600;letter-spacing:-0.03em;line-height:1.1;color:var(--ice)}
+.pain-answer h3 em{font-style:normal;color:var(--gold)}
+.pain-answer p{margin-top:8px;font-size:14px;color:var(--ice-2)}
+
+/* ============================================================
+   SOLUTION — 4 cards
+   ============================================================ */
+.sol{background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg) 100%);position:relative}
+.sol::before{
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle,var(--petrol-glow) 0%,transparent 70%);
+  filter:blur(40px);pointer-events:none;
+}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;position:relative}
+.sol-card{
+  position:relative;
+  padding:18px 16px 16px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:transform 0.2s cubic-bezier(0.2,0.7,0.2,1),border-color 0.2s;
+}
+.sol-card:active{transform:scale(0.985)}
+.sol-card::before{
+  content:"";position:absolute;top:-30%;left:-30%;width:80%;height:80%;
+  background:radial-gradient(circle,var(--petrol-glow) 0%,transparent 70%);
+  filter:blur(20px);opacity:0.7;pointer-events:none;
+}
+.sol-card .num{
+  font-family:'JetBrains Mono';font-size:10px;color:var(--ice-4);font-weight:700;letter-spacing:0.1em;
+}
+.sol-card .ic{
+  margin-top:10px;width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(180deg,rgba(46,148,200,0.20) 0%,rgba(46,148,200,0.05) 100%);
+  border:1px solid rgba(46,148,200,0.30);
+  display:grid;place-items:center;color:#7ad0ff;
+  position:relative;z-index:1;
+  box-shadow:0 0 24px -4px rgba(46,148,200,0.4) inset,0 6px 16px -6px rgba(46,148,200,0.5);
+}
+.sol-card .ic svg{width:22px;height:22px}
+.sol-card.gold .ic{background:linear-gradient(180deg,rgba(255,214,10,0.20) 0%,rgba(255,214,10,0.04) 100%);border-color:rgba(255,214,10,0.35);color:var(--gold);box-shadow:0 0 24px -4px rgba(255,214,10,0.4) inset,0 6px 16px -6px rgba(255,214,10,0.5)}
+.sol-card h4{margin-top:14px;font-size:16px;font-weight:600;color:var(--ice);letter-spacing:-0.02em;line-height:1.15;position:relative;z-index:1}
+.sol-card p{margin-top:6px;font-size:12.5px;color:var(--ice-3);line-height:1.4;position:relative;z-index:1}
+.sol-card.wide{grid-column:1/-1;display:flex;align-items:flex-start;gap:14px;padding:18px 18px 18px 16px}
+.sol-card.wide .ic{flex:0 0 42px;margin-top:0}
+.sol-card.wide .body{flex:1}
+.sol-card.wide h4{margin-top:0}
+.sol-card.wide .arr{flex:0 0 24px;align-self:center;color:var(--ice-3)}
+
+/* ============================================================
+   DELIVERY — Uber da placa
+   ============================================================ */
+.deliv{background:linear-gradient(180deg,var(--bg) 0%,#0a1622 50%,var(--bg) 100%);position:relative}
+.deliv-map{
+  margin:28px -20px 0;
+  position:relative;height:340px;overflow:hidden;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(80% 60% at 50% 50%,#0d2238 0%,#06101a 70%,#040810 100%);
+}
+.deliv-map svg{width:100%;height:100%;position:absolute;inset:0}
+.deliv-map .pin{
+  position:absolute;width:18px;height:18px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 4px rgba(255,214,10,0.20),0 0 22px rgba(255,214,10,0.6);
+}
+.deliv-map .pin::after{
+  content:"";position:absolute;inset:-8px;border-radius:50%;
+  border:1.5px solid var(--gold);
+  animation:ping 2.2s ease-out infinite;
+}
+.deliv-map .pin.you{top:36%;left:24%}
+.deliv-map .pin.shop{top:60%;left:62%;background:var(--whats);box-shadow:0 0 0 4px rgba(37,211,102,0.20),0 0 22px rgba(37,211,102,0.6)}
+.deliv-map .pin.shop::after{border-color:var(--whats)}
+.deliv-map .scoot{
+  position:absolute;top:48%;left:32%;
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(180deg,#fff 0%,#d4d8e0 100%);
+  display:grid;place-items:center;color:#0a0a0a;
+  box-shadow:0 8px 18px -4px rgba(0,0,0,0.7),0 0 0 1.5px rgba(0,0,0,0.4);
+  animation:scoot 6s cubic-bezier(0.5,0.1,0.5,0.9) infinite;
+}
+.deliv-map .scoot svg{width:22px;height:22px}
+@keyframes scoot{
+  0%{top:36%;left:24%;transform:rotate(8deg)}
+  45%{top:46%;left:42%;transform:rotate(20deg)}
+  55%{top:50%;left:50%;transform:rotate(20deg)}
+  90%{top:60%;left:62%;transform:rotate(0deg)}
+  92%,100%{top:60%;left:62%;transform:rotate(0deg);opacity:0}
+}
+.deliv-map .label{
+  position:absolute;font-family:'JetBrains Mono';font-size:9px;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--ice-2);
+  background:rgba(6,7,10,0.7);backdrop-filter:blur(8px);
+  padding:4px 8px;border-radius:6px;
+  border:1px solid var(--line);
+}
+.deliv-map .label.you{top:30%;left:24%;color:var(--gold);border-color:rgba(255,214,10,0.3)}
+.deliv-map .label.shop{top:66%;left:62%;color:#5be3a8;border-color:rgba(37,211,102,0.3)}
+
+.deliv-stat{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:18px;padding:14px 18px;border-radius:14px;
+  background:rgba(255,255,255,0.03);border:1px solid var(--line);
+}
+.deliv-stat .row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ice-2);font-weight:500}
+.deliv-stat .row b{color:var(--ice);font-weight:600}
+.deliv-stat .px{color:var(--gold);font-family:'JetBrains Mono';font-weight:800;letter-spacing:0.04em}
+
+/* ============================================================
+   PRICES
+   ============================================================ */
+.prices{background:var(--bg)}
+.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.pc{
+  padding:16px 14px;border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%);
+  border:1px solid var(--line);position:relative;overflow:hidden;
+}
+.pc.featured{
+  background:linear-gradient(180deg,rgba(255,214,10,0.12) 0%,rgba(255,214,10,0.02) 100%);
+  border-color:rgba(255,214,10,0.35);
+  box-shadow:0 0 0 1px rgba(255,214,10,0.15),0 20px 50px -20px rgba(255,214,10,0.30);
+}
+.pc .cat{font-family:'JetBrains Mono';font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ice-4)}
+.pc.featured .cat{color:var(--gold)}
+.pc h4{margin-top:8px;font-size:16px;font-weight:600;color:var(--ice);letter-spacing:-0.02em}
+.pc .desc{margin-top:4px;font-size:12px;color:var(--ice-3);line-height:1.4}
+.pc .val{margin-top:14px;font-family:'Space Grotesk';font-weight:700;font-size:36px;letter-spacing:-0.04em;color:var(--ice);line-height:1}
+.pc .val .cur{font-size:14px;font-weight:600;color:var(--ice-3);margin-right:2px;vertical-align:top;position:relative;top:6px}
+.pc.featured .val{color:var(--gold)}
+.pc.featured .val .cur{color:rgba(255,214,10,0.7)}
+.pc .ft{margin-top:6px;font-size:11px;color:var(--ice-4)}
+.pc-wide{grid-column:1/-1;display:flex;align-items:center;gap:12px}
+.pc-wide .body{flex:1}
+.pc-wide .pill{
+  padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid var(--line);
+  font-size:12px;font-weight:600;color:var(--ice-2)
+}
+
+/* ============================================================
+   SOCIAL PROOF
+   ============================================================ */
+.social{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-1) 100%);overflow:hidden}
+.google-card{
+  margin-top:28px;padding:18px 18px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%);
+  border:1px solid var(--line);
+  display:flex;align-items:center;gap:14px;
+}
+.g-logo{
+  width:46px;height:46px;border-radius:14px;
+  background:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,0.6);
+  font-family:'Space Grotesk';font-weight:700;font-size:24px;
+}
+.g-logo svg{width:24px;height:24px}
+.g-info{flex:1}
+.g-stars{display:flex;align-items:center;gap:6px;color:var(--gold);font-size:14px}
+.g-stars b{font-family:'Space Grotesk';font-size:22px;font-weight:700;color:var(--ice);letter-spacing:-0.02em;line-height:1;margin-right:2px}
+.g-stars .ct{color:var(--ice-3);font-size:12px;font-weight:500}
+.g-sub{font-size:12px;color:var(--ice-3);margin-top:3px}
+
+.reviews{
+  margin:24px -20px 0;padding:0 20px 20px;
+  display:flex;gap:12px;overflow-x:auto;overflow-y:visible;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.reviews::-webkit-scrollbar{display:none}
+.review{
+  flex:0 0 86%;scroll-snap-align:start;
+  padding:20px 18px;border-radius:18px;
+  background:linear-gradient(180deg,#0e131c 0%,#0a0d14 100%);
+  border:1px solid var(--line);
+  position:relative;
+}
+.review .stars{color:var(--gold);font-size:13px;letter-spacing:2px}
+.review .body{margin-top:10px;font-size:14px;line-height:1.5;color:var(--ice-2)}
+.review .who{margin-top:14px;display:flex;align-items:center;gap:10px}
+.review .av{
+  width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;font-weight:700;font-size:13px;color:#06070a;
+}
+.review .who b{font-family:'Space Grotesk';font-size:13px;font-weight:600;color:var(--ice);letter-spacing:-0.01em}
+.review .who span{display:block;font-size:11px;color:var(--ice-4);margin-top:1px}
+.review .gq{position:absolute;top:14px;right:18px;color:var(--ice-4);opacity:0.4}
+
+.dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.dots span{width:6px;height:6px;border-radius:50%;background:var(--line-2);transition:all 0.3s}
+.dots span.active{background:var(--gold);width:18px;border-radius:3px}
+
+/* storefront placeholder */
+.storefront{
+  margin-top:26px;border-radius:20px;overflow:hidden;
+  background:
+    linear-gradient(180deg,transparent 0%,transparent 50%,rgba(6,7,10,0.6) 100%),
+    repeating-linear-gradient(90deg,#1a2030 0 6px,#11151f 6px 14px);
+  height:200px;position:relative;border:1px solid var(--line);
+}
+.storefront::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:140px;height:54px;background:#fff;border-radius:6px;border:3px solid #0a0a0a;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);
+}
+.storefront::after{
+  content:"+MAIS PLACAS";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:'Space Grotesk';font-weight:700;color:#0a0a0a;font-size:13px;letter-spacing:-0.02em;
+}
+.sf-badge{
+  position:absolute;top:14px;left:14px;
+  padding:6px 10px;border-radius:8px;
+  background:rgba(6,7,10,0.7);backdrop-filter:blur(8px);
+  font-size:11px;color:var(--ice);font-weight:500;display:flex;align-items:center;gap:6px;
+  border:1px solid var(--line);
+}
+.sf-meta{
+  position:absolute;bottom:14px;left:14px;right:14px;
+  display:flex;justify-content:space-between;align-items:end;color:var(--ice);
+}
+.sf-meta b{font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:-0.01em;display:block}
+.sf-meta span{font-size:11px;color:var(--ice-3)}
+.sf-rate{font-family:'Space Grotesk';font-weight:700;font-size:14px;color:var(--gold)}
+
+.placeholder-note{
+  margin-top:8px;font-size:11px;color:var(--ice-4);font-style:italic;text-align:center;
+}
+
+/* ============================================================
+   URGENCY
+   ============================================================ */
+.urg{
+  background:
+    linear-gradient(180deg,#0a0a0a 0%,#06070a 100%);
+  position:relative;overflow:hidden;
+  padding:80px 20px 64px;
+}
+.urg::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:14px;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--gold) 0 18px,
+    #0a0a0a 18px 36px
+  );
+  opacity:0.95;
+}
+.urg::after{
+  content:"";position:absolute;bottom:0;left:0;right:0;height:14px;
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--gold) 0 18px,
+    #0a0a0a 18px 36px
+  );
+  opacity:0.95;
+}
+.urg .eyebrow{color:var(--gold)}
+.urg .eyebrow .num{color:var(--gold)}
+.urg-icon{
+  margin-top:24px;width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(180deg,var(--gold) 0%,var(--gold-2) 100%);
+  display:grid;place-items:center;color:var(--gold-ink);
+  box-shadow:0 10px 30px -8px rgba(255,214,10,0.5);
+}
+.urg-icon svg{width:30px;height:30px}
+.urg h2{margin-top:22px;font-size:32px;line-height:1.05;letter-spacing:-0.04em;color:var(--ice);font-weight:600}
+.urg-list{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.urg-list li{
+  list-style:none;display:flex;gap:12px;align-items:flex-start;
+  padding:14px 16px;border-radius:12px;
+  background:rgba(255,214,10,0.05);border-left:3px solid var(--gold);
+  font-size:14.5px;color:var(--ice);line-height:1.45;font-weight:500;
+}
+.urg-list li svg{flex:0 0 18px;margin-top:2px;color:var(--gold)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{background:var(--bg)}
+.faq-list{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  border-radius:14px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:border-color 0.2s,background 0.2s;
+}
+.faq-item[open]{border-color:rgba(255,214,10,0.30);background:rgba(255,214,10,0.04)}
+.faq-item summary{
+  list-style:none;cursor:pointer;
+  padding:16px 50px 16px 18px;position:relative;
+  font-family:'Space Grotesk';font-weight:500;font-size:15px;color:var(--ice);letter-spacing:-0.01em;
+  line-height:1.3;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,0.05);border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--ice-2);font-weight:400;font-size:18px;
+  transition:transform 0.3s cubic-bezier(0.2,0.7,0.2,1),background 0.3s;
+}
+.faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg);background:var(--gold);color:var(--gold-ink);border-color:var(--gold)}
+.faq-answer{padding:0 18px 18px;font-size:14px;color:var(--ice-2);line-height:1.55}
+.faq-answer b{color:var(--ice);font-weight:600}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final{
+  padding:64px 20px 72px;
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(46,148,200,0.15) 0%,transparent 70%),
+    linear-gradient(180deg,var(--bg) 0%,#0a1018 100%);
+  text-align:center;
+}
+.final h2{font-size:32px;letter-spacing:-0.04em;line-height:1.05;color:var(--ice);font-weight:600}
+.final h2 em{font-style:normal;color:var(--gold)}
+.final p{margin-top:14px;font-size:15px;color:var(--ice-2);max-width:340px;margin-inline:auto}
+.final .cta-block{margin-top:24px}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  padding:36px 20px 28px;background:#020306;border-top:1px solid var(--line);
+  font-size:13px;color:var(--ice-3);
+}
+footer .top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+footer .top .brand{font-size:14px}
+footer .info{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;margin-top:24px}
+footer .info > div{font-size:12px}
+footer .info b{display:block;font-family:'Space Grotesk';color:var(--ice);font-weight:600;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px}
+footer .info span,footer .info a{color:var(--ice-2)}
+footer .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:11px;color:var(--ice-4);line-height:1.5}
+
+/* ============================================================
+   STICKY BOTTOM CTA
+   ============================================================ */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(6,7,10,0) 0%,rgba(6,7,10,0.92) 30%,rgba(6,7,10,1) 100%);
+  pointer-events:none;
+  transform:translateY(120%);
+  transition:transform 0.45s cubic-bezier(0.2,0.7,0.2,1);
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .inner{
+  pointer-events:auto;max-width:480px;margin:0 auto;
+  display:flex;align-items:center;gap:10px;
+  padding:8px 8px 8px 16px;border-radius:18px;
+  background:linear-gradient(180deg,#0d1018 0%,#070a0f 100%);
+  border:1px solid var(--line);
+  box-shadow:0 -8px 30px -8px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.02);
+}
+.sticky-cta .ms{flex:1;display:flex;flex-direction:column;min-width:0}
+.sticky-cta .ms b{font-family:'Space Grotesk';font-weight:600;font-size:14px;color:var(--ice);letter-spacing:-0.01em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-cta .ms span{font-size:11px;color:var(--ice-3);margin-top:2px;display:flex;align-items:center;gap:5px}
+.sticky-cta .ms .lv{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px rgba(52,211,153,0.7);animation:livedot 1.6s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1}50%{opacity:0.55}}
+.sticky-cta .go{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 18px;border-radius:14px;
+  background:linear-gradient(180deg,#2ee578 0%,var(--whats) 100%);
+  color:#04220f;font-family:'Space Grotesk';font-weight:600;font-size:14px;
+  box-shadow:0 8px 20px -6px rgba(37,211,102,0.5);
+  position:relative;overflow:hidden;
+  animation:gopulse 2.4s ease-in-out infinite;
+}
+.sticky-cta .go svg{width:18px;height:18px;flex:0 0 18px}
+@keyframes gopulse{0%,100%{transform:scale(1);box-shadow:0 8px 20px -6px rgba(37,211,102,0.5)}50%{transform:scale(1.03);box-shadow:0 10px 28px -4px rgba(37,211,102,0.75)}}
+
+/* ============================================================
+   RESPONSIVE — small phones
+   ============================================================ */
+@media (max-width:360px){
+  .hero h1{font-size:36px}
+  .section-title{font-size:30px}
+  .urg h2,.final h2{font-size:28px}
+}
+@media (min-width:480px){
+  .hero h1{font-size:48px}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="particles" aria-hidden="true" id="particles"></div>
+
+  <!-- ============ TOPBAR ============ -->
+  <header class="topbar">
+    <div class="brand"><span class="plus">+</span><b>MAIS</b><i>placas</i></div>
+    <div class="live-status"><span class="live-dot"></span>Aberto · Bauru-SP</div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="hero-eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 2 L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+      Emplacadora autorizada · DETRAN-SP
+    </div>
+
+    <h1>
+      <span class="grad">Perdeu a placa?</span><br/>
+      <em>A gente resolve</em><br/>
+      <span class="strike">hoje.</span>
+    </h1>
+
+    <p class="hero-sub">Autorização <b>DETRAN-SP</b>, estampagem oficial e instalação <b>numa tarde</b>. Com delivery em Bauru.</p>
+
+    <!-- ============ PLATE SCENE ============ -->
+    <div class="plate-scene" id="plateScene">
+      <div class="stamp tl"><span class="tk">SCAN OK</span></div>
+      <div class="stamp tr"><span class="tk">DETRAN-SP</span></div>
+      <div class="stamp bl">SN 20-26</div>
+      <div class="stamp br">BAU · BR</div>
+
+      <div class="plate-stage">
+        <div class="plate" id="plateEl">
+          <div class="plate-body">
+            <div class="plate-top">
+              <span class="flag" aria-hidden="true"></span>
+              <span class="ms">MERCOSUL</span>
+              <span class="br">BR</span>
+            </div>
+            <div class="plate-bottom" id="plateChars">
+              <span>M</span><span>A</span><span>I</span><span class="gap"></span><span>1</span><span>S</span><span>2</span><span>6</span>
+            </div>
+            <div class="plate-shine idle"></div>
+          </div>
+          <div class="screw tl"></div>
+          <div class="screw tr"></div>
+          <div class="screw bl"></div>
+          <div class="screw br"></div>
+        </div>
+      </div>
+
+      <div class="plate-flash"></div>
+
+      <div class="confirm-seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+      </div>
+    </div>
+
+    <div class="time-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      Encaixado em ~4h · do zero
+    </div>
+
+    <!-- ============ CTA ============ -->
+    <div class="cta-block">
+      <a class="btn-whats" href="https://wa.me/5514997437445?text=Perdi%20%2F%20preciso%20trocar%20minha%20placa%20agora" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.711.307 1.265.489 1.697.626.713.226 1.362.194 1.875.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Perdi / preciso trocar minha placa agora</span>
+      </a>
+      <div class="cta-foot">
+        <span>Resposta rápida</span><span class="sep"></span><span>orientação gratuita</span>
+      </div>
+    </div>
+
+    <div class="trust-row">
+      <div>
+        <div class="ti">DETRAN-SP</div>
+        <div class="tl">Autorizada</div>
+      </div>
+      <div class="div"></div>
+      <div>
+        <div class="ti">★ 4,9</div>
+        <div class="tl">296 avaliações</div>
+      </div>
+      <div class="div"></div>
+      <div>
+        <div class="ti">⚡ Hoje</div>
+        <div class="tl">Mesmo dia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAIN ============ -->
+  <section class="pain" data-screen-label="02 Pain">
+    <div class="r">
+      <div class="eyebrow"><span class="num">01</span><span class="line"></span> O problema</div>
+      <h2 class="section-title">Você perde horas tentando<br/>entender o <em>processo</em>.</h2>
+    </div>
+
+    <div class="pain-flow r">
+      <div class="pain-step">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M7 14h4"/></svg>
+        </div>
+        <div class="txt"><h4>DETRAN online</h4><p>Login GOV.BR, formulário, autorização…</p></div>
+        <div class="tag">~2h</div>
+      </div>
+      <div class="pain-step">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"/><path d="M6 19v-8l6-5 6 5v8"/><path d="M10 19v-5h4v5"/></svg>
+        </div>
+        <div class="txt"><h4>Poupatempo</h4><p>Senha, fila, retorno em outro dia.</p></div>
+        <div class="tag">~3h</div>
+      </div>
+      <div class="pain-step">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+        </div>
+        <div class="txt"><h4>B.O. da placa</h4><p>Boletim de ocorrência, segunda via…</p></div>
+        <div class="tag">~1h</div>
+      </div>
+      <div class="pain-step">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c0-1 1-2 2-2h14c1 0 2 1 2 2v6H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M8 10V6h8v4"/></svg>
+        </div>
+        <div class="txt"><h4>Emplacadora qualquer</h4><p>"Volta amanhã", "tem que esperar"…</p></div>
+        <div class="tag">??</div>
+      </div>
+    </div>
+
+    <div class="pain-answer r">
+      <h3>A gente resolve em <em>menos de uma tarde</em>.</h3>
+      <p>Um lugar. Um WhatsApp. Tudo oficial — autorização, estampagem e instalação.</p>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION ============ -->
+  <section class="sol" data-screen-label="03 Solution">
+    <div class="r">
+      <div class="eyebrow"><span class="num">02</span><span class="line"></span> A solução</div>
+      <h2 class="section-title">Tudo num lugar só.<br/><em>Numa tarde.</em></h2>
+      <p class="section-sub">Você manda mensagem, a gente faz o resto. Sem ir em outro lugar, sem esperar nada chegar.</p>
+    </div>
+
+    <div class="sol-grid stagger">
+      <div class="sol-card">
+        <div class="num">01</div>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h4>Autorização DETRAN</h4>
+        <p>Emitida no nosso sistema, na hora.</p>
+      </div>
+      <div class="sol-card gold">
+        <div class="num">02</div>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M3 11h18"/><path d="M7 14h3"/></svg>
+        </div>
+        <h4>Fabricação oficial</h4>
+        <p>Placa Mercosul estampada na loja.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">03</div>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h4>Instalação na hora</h4>
+        <p>Encaixe, parafusos, lacre. Pronto.</p>
+      </div>
+      <div class="sol-card">
+        <div class="num">04</div>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 13h16V4H1z"/><path d="M17 8h4l2 5v5h-6"/><circle cx="6" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+        </div>
+        <h4>Delivery em Bauru</h4>
+        <p>Casa, trabalho, oficina.</p>
+      </div>
+
+      <a href="https://wa.me/5514997437445?text=Quero%20saber%20como%20funciona" target="_blank" rel="noopener" class="sol-card wide" style="text-decoration:none">
+        <div class="ic" style="background:linear-gradient(180deg,rgba(37,211,102,0.20),rgba(37,211,102,0.04));border-color:rgba(37,211,102,0.35);color:#5be3a8;box-shadow:0 0 24px -4px rgba(37,211,102,0.4) inset,0 6px 16px -6px rgba(37,211,102,0.5)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        </div>
+        <div class="body">
+          <h4>Não sabe por onde começar?</h4>
+          <p>Manda uma mensagem — a gente te orienta sem cobrar nada.</p>
+        </div>
+        <div class="arr">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ DELIVERY ============ -->
+  <section class="deliv" data-screen-label="04 Delivery">
+    <div class="r">
+      <div class="eyebrow"><span class="num">03</span><span class="line"></span> Delivery</div>
+      <h2 class="section-title">A gente vai<br/><em>até você.</em></h2>
+      <p class="section-sub">Casa, empresa ou oficina. Você fala onde, a gente leva a placa pronta e instala no local.</p>
+    </div>
+
+    <div class="deliv-map r" aria-hidden="true">
+      <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="bauruGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ffd60a" stop-opacity="0.2"/>
+            <stop offset="50%" stop-color="#ffd60a" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#25D366" stop-opacity="0.9"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="340" fill="url(#bauruGrid)"/>
+        <!-- streets -->
+        <g stroke="rgba(140,170,210,0.18)" stroke-width="1.2" fill="none">
+          <path d="M-10 80 Q 100 60, 200 90 T 410 70"/>
+          <path d="M-10 160 Q 120 180, 230 150 T 410 170"/>
+          <path d="M-10 250 Q 130 220, 240 240 T 410 250"/>
+          <path d="M60 -10 Q 90 100, 70 200 T 80 350"/>
+          <path d="M180 -10 Q 200 90, 170 180 T 190 350"/>
+          <path d="M310 -10 Q 290 100, 320 200 T 300 350"/>
+        </g>
+        <!-- highway -->
+        <path d="M-10 200 Q 100 140, 200 180 T 410 150" stroke="rgba(140,170,210,0.30)" stroke-width="3.5" fill="none"/>
+        <path d="M-10 200 Q 100 140, 200 180 T 410 150" stroke="rgba(255,255,255,0.06)" stroke-width="1.2" stroke-dasharray="6 8" fill="none"/>
+
+        <!-- city label -->
+        <text x="200" y="42" font-family="Space Grotesk" font-size="11" font-weight="600" fill="rgba(255,255,255,0.35)" letter-spacing="3" text-anchor="middle">BAURU · SP</text>
+
+        <!-- route -->
+        <path id="route" d="M 96 122 Q 180 160, 220 180 T 330 240" stroke="url(#routeGrad)" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="600" stroke-dashoffset="600">
+          <animate attributeName="stroke-dashoffset" from="600" to="0" dur="2.8s" begin="0.4s" fill="freeze"/>
+        </path>
+      </svg>
+
+      <div class="label you">Você</div>
+      <div class="pin you"></div>
+      <div class="scoot">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 18a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm10-14h3l2 6v4h-2.18a3 3 0 1 0-5.64 0H8a3 3 0 1 0-6 0H1v-2a4 4 0 0 1 4-4h6v6h2V5a1 1 0 0 1 1-1zm0 14a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg>
+      </div>
+      <div class="pin shop"></div>
+      <div class="label shop">+Mais Placas</div>
+    </div>
+
+    <div class="deliv-stat r">
+      <div class="row"><b>~25min</b> <span>do centro</span></div>
+      <div class="row"><span class="px">+ R$ 0</span> <span>na loja</span></div>
+    </div>
+
+    <div class="cta-block">
+      <a class="btn-whats" href="https://wa.me/5514997437445?text=Quero%20delivery%20de%20placa%20em%20Bauru" target="_blank" rel="noopener" style="background:linear-gradient(180deg,#ffe24a 0%,var(--gold) 60%,var(--gold-2) 100%);color:#1a1300;box-shadow:0 10px 30px -8px rgba(255,214,10,0.55),0 0 0 1px rgba(255,214,10,0.2),inset 0 1px 0 rgba(255,255,255,0.4),inset 0 -2px 4px rgba(0,0,0,0.15)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        <span>Pedir delivery agora</span>
+      </a>
+      <div class="cta-foot"><span>Sem taxa extra dentro de Bauru</span></div>
+    </div>
+  </section>
+
+  <!-- ============ PRICES ============ -->
+  <section class="prices" data-screen-label="05 Prices">
+    <div class="r">
+      <div class="eyebrow"><span class="num">04</span><span class="line"></span> Preços</div>
+      <h2 class="section-title">Sem letra miúda.<br/><em>Sem "depende".</em></h2>
+      <p class="section-sub">Casos mais comuns têm preço fixo. Caminhão, 0 km ou delivery: consulta rápida no WhatsApp.</p>
+    </div>
+
+    <div class="price-cards stagger">
+      <div class="pc">
+        <div class="cat">Moto</div>
+        <h4>1 placa Mercosul</h4>
+        <div class="desc">Instalada na hora.</div>
+        <div class="val"><span class="cur">R$</span>80</div>
+        <div class="ft">À vista · WhatsApp</div>
+      </div>
+      <div class="pc featured">
+        <div class="cat">Mais pedido</div>
+        <h4>Carro · par</h4>
+        <div class="desc">Dianteira + traseira, com instalação.</div>
+        <div class="val"><span class="cur">R$</span>160</div>
+        <div class="ft">Pagamento: consultar</div>
+      </div>
+      <div class="pc pc-wide">
+        <div class="body">
+          <div class="cat">Caminhão · 0 km · delivery</div>
+          <h4>Casos especiais</h4>
+          <div class="desc">Orçamento na hora pelo WhatsApp.</div>
+        </div>
+        <div class="pill">Consultar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL ============ -->
+  <section class="social" data-screen-label="06 Social Proof">
+    <div class="r">
+      <div class="eyebrow"><span class="num">05</span><span class="line"></span> Quem já passou por aqui</div>
+      <h2 class="section-title">Uma das emplacadoras mais bem<br/>avaliadas de <em>Bauru</em>.</h2>
+    </div>
+
+    <div class="google-card r">
+      <div class="g-logo">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.6 16.1 19 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.6-5.2L31.4 34c-2 1.5-4.6 2.5-7.4 2.5-5.2 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2c-.4.4 6.6-4.8 6.6-14.8 0-1.3-.1-2.4-.4-3.5z"/></svg>
+      </div>
+      <div class="g-info">
+        <div class="g-stars"><b>4,9</b> ★★★★★ <span class="ct">/ 5</span></div>
+        <div class="g-sub">296 avaliações no Google · últimos 12 meses</div>
+      </div>
+    </div>
+
+    <div class="reviews" id="reviews">
+      <article class="review">
+        <div class="gq">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M9 11H5l1-5h4v5l-2 6H6l1-6zm10 0h-4l1-5h4v5l-2 6h-2l1-6z"/></svg>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="body">"Resolvi tudo numa tarde. Cheguei sem placa, sai com o carro pronto. Não imaginei que era tão rápido."</p>
+        <div class="who">
+          <div class="av" style="background:linear-gradient(135deg,#ffd60a,#f5b400)">RM</div>
+          <div><b>Rafael M.</b><span>Carro · Vila Bonfim</span></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="gq">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M9 11H5l1-5h4v5l-2 6H6l1-6zm10 0h-4l1-5h4v5l-2 6h-2l1-6z"/></svg>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="body">"Tinha perdido a placa da moto. Falei no WhatsApp e em 3h tava tudo resolvido. Profissionais. Recomendo demais."</p>
+        <div class="who">
+          <div class="av" style="background:linear-gradient(135deg,#7ad0ff,#3b8fb8)">JS</div>
+          <div><b>Juliana S.</b><span>Moto · Centro</span></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="gq">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M9 11H5l1-5h4v5l-2 6H6l1-6zm10 0h-4l1-5h4v5l-2 6h-2l1-6z"/></svg>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="body">"Pedi delivery porque não conseguia sair da oficina. Chegaram no horário marcado, instalaram, foram embora. Top."</p>
+        <div class="who">
+          <div class="av" style="background:linear-gradient(135deg,#5be3a8,#10a673)">PC</div>
+          <div><b>Pedro C.</b><span>Frota · Mary Dota</span></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="gq">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M9 11H5l1-5h4v5l-2 6H6l1-6zm10 0h-4l1-5h4v5l-2 6h-2l1-6z"/></svg>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="body">"Atenderam na hora. Sem enrolação. Preço claro. Saí com a placa instalada e o documento em ordem. Show."</p>
+        <div class="who">
+          <div class="av" style="background:linear-gradient(135deg,#ff9a8b,#ff6b6b)">AL</div>
+          <div><b>Amanda L.</b><span>Carro · Geisel</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="dots" id="dots"><span class="active"></span><span></span><span></span><span></span></div>
+
+    <div class="storefront r">
+      <div class="sf-badge"><span class="live-dot" style="width:6px;height:6px"></span> Aberto agora</div>
+      <div class="sf-meta">
+        <div><b>+Mais Placas · Bauru-SP</b><span>Av. Rodrigues Alves, 16-40 · Vila Bonfim</span></div>
+        <div class="sf-rate">★ 4,9</div>
+      </div>
+    </div>
+    <p class="placeholder-note">Foto da fachada — substitua por imagem real</p>
+  </section>
+
+  <!-- ============ URGENCY ============ -->
+  <section class="urg" data-screen-label="07 Urgency">
+    <div class="r">
+      <div class="eyebrow"><span class="num">06</span><span class="line"></span> Atenção</div>
+      <div class="urg-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L1 21h22z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <h2>Não dá pra empurrar com a barriga.</h2>
+    </div>
+    <ul class="urg-list stagger">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L1 21h22z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        Rodar sem placa pode gerar <b>multa e apreensão</b>.
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Quanto antes resolver, <b>menor a dor de cabeça</b>.
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+        <b>Você resolve isso hoje.</b> A gente abre agora.
+      </li>
+    </ul>
+    <div class="cta-block r">
+      <a class="btn-whats" href="https://wa.me/5514997437445?text=Quero%20resolver%20agora" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        <span>Resolver agora — chamar no WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" data-screen-label="08 FAQ">
+    <div class="r">
+      <div class="eyebrow"><span class="num">07</span><span class="line"></span> Dúvidas</div>
+      <h2 class="section-title">Perguntas <em>frequentes</em>.</h2>
+    </div>
+    <div class="faq-list r">
+      <details class="faq-item">
+        <summary>Preciso ir ao DETRAN antes?</summary>
+        <div class="faq-answer">Depende do caso. <b>Manda mensagem que a gente te orienta exatamente</b> o que precisa antes de sair de casa — sem custo.</div>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu perdi a placa?</summary>
+        <div class="faq-answer">Faça um B.O. (online ou no Poupatempo), peça a segunda via, vem aqui — e a placa sai <b>na hora</b>. A gente cuida do resto.</div>
+      </details>
+      <details class="faq-item">
+        <summary>A placa é oficial mesmo?</summary>
+        <div class="faq-answer"><b>100% oficial.</b> Emitimos com autorização DETRAN-SP, nota fiscal e registro no sistema nacional. Tudo dentro da lei.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto tempo demora?</summary>
+        <div class="faq-answer">Na maioria dos casos, <b>resolvemos em uma tarde</b> — autorização, estampagem e instalação na mesma visita.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O delivery cobra a mais?</summary>
+        <div class="faq-answer">Dentro de Bauru, sem taxa extra na maioria dos bairros. Pra distritos ou fora da cidade, consulte pelo WhatsApp.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Qual o horário?</summary>
+        <div class="faq-answer">Loja: <b>seg-sex 9h–17h30, sáb 9h–12h</b>. WhatsApp respondemos rápido em horário comercial e bem perto disso fora dele.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final" data-screen-label="09 Final">
+    <div class="r">
+      <h2>Pronto pra <em>resolver?</em></h2>
+      <p>Estou em Bauru. Em poucos minutos a gente te diz exatamente o que fazer.</p>
+      <div class="cta-block">
+        <a class="btn-whats" href="https://wa.me/5514997437445?text=Estou%20em%20Bauru%20e%20quero%20resolver%20hoje" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+          <span>Quero resolver hoje</span>
+        </a>
+        <div class="cta-foot"><span>(14) 99743-7445</span><span class="sep"></span><span>Resposta rápida</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer data-screen-label="10 Footer">
+    <div class="top">
+      <div class="brand"><span class="plus">+</span><b>MAIS</b><i>placas</i></div>
+      <div class="live-status"><span class="live-dot"></span>Aberto</div>
+    </div>
+    <div class="info">
+      <div><b>Endereço</b><span>Av. Rodrigues Alves, 16-40<br/>Vila Bonfim, Bauru-SP</span></div>
+      <div><b>Contato</b><a href="https://wa.me/5514997437445">(14) 99743-7445</a><br/><span>WhatsApp · Telefone</span></div>
+      <div><b>Horário</b><span>Seg-sex 9h–17h30<br/>Sáb 9h–12h</span></div>
+      <div><b>Autorização</b><span>DETRAN-SP<br/>Placa Mercosul oficial</span></div>
+    </div>
+    <div class="legal">© 2026 +Mais Placas · Bauru-SP. Emplacadora autorizada DETRAN-SP. Todos os serviços são executados com nota fiscal e registro oficial.</div>
+  </footer>
+
+</div><!-- /shell -->
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="inner">
+    <div class="ms">
+      <b>Resolver minha placa agora</b>
+      <span><span class="lv"></span> Aberto · responde em minutos</span>
+    </div>
+    <a class="go" href="https://wa.me/5514997437445?text=Resolver%20minha%20placa%20agora" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<script>
+/* ============ scroll reveal ============ */
+(function(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+  document.querySelectorAll('.r, .stagger').forEach(el => io.observe(el));
+})();
+
+/* ============ particles ============ */
+(function(){
+  const wrap = document.getElementById('particles');
+  if (!wrap) return;
+  const N = 14;
+  for (let i = 0; i < N; i++){
+    const s = document.createElement('span');
+    s.style.left = (Math.random() * 100) + '%';
+    s.style.top = '110%';
+    s.style.opacity = (0.2 + Math.random() * 0.4).toString();
+    s.style.animationDuration = (8 + Math.random() * 14) + 's';
+    s.style.animationDelay = (-Math.random() * 14) + 's';
+    s.style.transform = `scale(${0.6 + Math.random() * 1.4})`;
+    wrap.appendChild(s);
+  }
+})();
+
+/* ============ sticky CTA visibility ============ */
+(function(){
+  const sticky = document.getElementById('stickyCta');
+  if (!sticky) return;
+  const trigger = document.querySelector('.hero');
+  let shown = false;
+  const onScroll = () => {
+    const r = trigger.getBoundingClientRect();
+    const should = r.bottom < window.innerHeight * 0.4;
+    if (should !== shown){ shown = should; sticky.classList.toggle('show', shown); }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ============ reviews carousel dots ============ */
+(function(){
+  const reviews = document.getElementById('reviews');
+  const dots = document.getElementById('dots');
+  if (!reviews || !dots) return;
+  const ds = dots.querySelectorAll('span');
+  reviews.addEventListener('scroll', () => {
+    const w = reviews.firstElementChild.getBoundingClientRect().width + 12;
+    const i = Math.round(reviews.scrollLeft / w);
+    ds.forEach((d, k) => d.classList.toggle('active', k === i));
+  }, { passive: true });
+})();
+
+/* ============ tap plate to replay ============ */
+(function(){
+  const scene = document.getElementById('plateScene');
+  if (!scene) return;
+  scene.addEventListener('click', () => {
+    const clones = scene.cloneNode(true);
+    scene.replaceWith(clones);
+    // re-attach listener on new node
+    clones.addEventListener('click', arguments.callee);
+  });
+})();
+</script>
+</body>
+</html>
