@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#06070a" />
 <title>+Mais Placas — Sua placa Mercosul em Bauru, hoje</title>
-<meta name="description" content="Perdeu ou precisa trocar a placa? Em Bauru, a gente resolve hoje. Autorização DETRAN-SP, estampagem oficial e delivery. Numa tarde." />
+<meta name="description" content="Emplacadora autorizada DETRAN-SP em Bauru. Placa Mercosul para carro novo, transferência e segunda via — estampagem e instalação numa tarde." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
@@ -921,92 +921,105 @@ footer .legal{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
 }
 
 /* ============================================================
-   NUDE THEME — SOPHISTIQUÉ
+   TRAFFIC · PLATE THEME — identidade Mercosul / sinalização
    ============================================================ */
 
 :root{
-  /* nude palette */
-  --bg:#F7F0E8;
-  --bg-1:#EFE5D8;
-  --bg-2:#E8DBCA;
-  --bg-3:#DFD0B8;
-  --surface:#FBF7F3;
-  --border:rgba(160,120,80,0.14);
-  --shadow:rgba(80,45,15,0.08);
+  /* plate / traffic palette */
+  --blue:#0052A5;
+  --blue-dark:#003F80;
+  --yellow:#F5C200;
+  --yellow-dark:#D4A800;
+  --red:#CC2200;
 
-  --text:#1A1108;
-  --text-2:#6B5240;
-  --muted:#A08060;
+  --bg:#F5F7FA;
+  --bg-1:#EDF0F5;
+  --bg-2:#E4E8F0;
+  --bg-3:#D9DEE9;
+  --surface:#FFFFFF;
+  --border:rgba(0,82,165,0.12);
+  --shadow:rgba(0,20,60,0.08);
 
-  --accent:#B87040;
-  --accent-hover:#8F5228;
-  --accent-glow:rgba(184,112,64,0.28);
-  --accent-soft:#E8C9A0;
+  --text:#0A1020;
+  --text-2:#3B4A6B;
+  --muted:#7A8AAD;
 
-  --urgent-bg:#1A1108;
-  --urgent-text:#F7F0E8;
+  --accent:#0052A5;
+  --accent-hover:#003F80;
+  --accent-glow:rgba(0,82,165,0.25);
+  --accent-soft:#D6E4F5;
 
-  /* remap legacy variable names */
-  --line:rgba(160,120,80,0.14);
-  --line-2:rgba(160,120,80,0.22);
-  --petrol:#EDE0D0;
-  --petrol-2:#E0CEBC;
-  --petrol-glow:rgba(184,112,64,0.08);
-  --ice:#1A1108;
-  --ice-2:#6B5240;
-  --ice-3:rgba(107,82,64,0.58);
-  --ice-4:rgba(107,82,64,0.35);
-  --gold:#B87040;
-  --gold-2:#9A6035;
-  --gold-ink:#FBF7F3;
-  --whats:#B87040;
-  --whats-2:#8F5228;
-  --whats-deep:#6B3D1E;
-  --metal:linear-gradient(180deg,#F0E8DC 0%,#D4C4AE 45%,#B8A490 55%,#E8D8C4 100%);
-  --shadow-sm:0 1px 3px var(--shadow),0 8px 24px var(--shadow),inset 0 1px 0 rgba(255,255,255,0.60);
+  --urgent-bg:#0A0E1A;
+  --urgent-text:#F5F7FA;
+
+  /* legacy remaps */
+  --line:rgba(0,82,165,0.12);
+  --line-2:rgba(0,82,165,0.20);
+  --petrol:#EDF0F5;
+  --petrol-2:#E4E8F0;
+  --petrol-glow:rgba(0,82,165,0.06);
+  --ice:#0A1020;
+  --ice-2:#3B4A6B;
+  --ice-3:rgba(59,74,107,0.60);
+  --ice-4:rgba(59,74,107,0.38);
+  --gold:#F5C200;
+  --gold-2:#D4A800;
+  --gold-ink:#0A1020;
+  --whats:#0052A5;
+  --whats-2:#003F80;
+  --whats-deep:#002D5C;
+  --metal:linear-gradient(180deg,#FFFFFF 0%,#E8EDF5 45%,#D0D8E8 55%,#F0F4FA 100%);
+  --shadow-sm:0 1px 3px var(--shadow),0 8px 24px var(--shadow),inset 0 1px 0 rgba(255,255,255,0.80);
   --shadow-md:0 2px 8px var(--shadow),0 20px 50px var(--shadow);
-  --shadow-glow:0 0 0 1px rgba(184,112,64,0.18),0 20px 60px -20px rgba(184,112,64,0.30);
-  --shadow-whats:0 10px 30px -8px var(--accent-glow),0 0 0 1px rgba(184,112,64,0.20);
+  --shadow-glow:0 0 0 1px rgba(0,82,165,0.15),0 20px 60px -20px rgba(0,82,165,0.25);
+  --shadow-whats:0 10px 30px -8px var(--accent-glow),0 0 0 1px rgba(0,82,165,0.18);
 }
 
 /* ── base ── */
 html,body{background:var(--bg);color:var(--text)}
 .shell{background:var(--bg)}
-@media(min-width:520px){body{background:#E0D0BC}.shell{box-shadow:0 0 0 1px rgba(160,120,80,0.10),0 30px 120px -20px rgba(80,45,15,0.20)}}
+@media(min-width:520px){body{background:#D9DEE9}.shell{box-shadow:0 0 0 1px rgba(0,82,165,0.08),0 30px 120px -20px rgba(0,20,60,0.18)}}
 
-/* grain overlay */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* grain overlay — mais suave */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* topbar */
-.topbar{background:rgba(247,240,232,0.92);border-bottom-color:var(--border)}
+/* signal stripe dividers */
+section+section::before{content:'';display:block;height:4px;background:repeating-linear-gradient(90deg,var(--yellow) 0 24px,transparent 24px 36px);opacity:0.45}
 
-/* particles — tom nude */
-.particles span{background:rgba(160,120,80,0.30);box-shadow:0 0 6px rgba(184,112,64,0.22)}
+/* topbar — azul autoridade */
+.topbar{background:rgba(0,55,130,0.96);border-bottom-color:rgba(0,82,165,0.30)}
+.topbar *{color:#FFFFFF !important}
+.topbar .live-status{background:rgba(245,194,0,0.18);border-color:rgba(245,194,0,0.45);color:var(--yellow) !important}
 
-/* ambient — blobs quentes */
-.ambient::before{background:radial-gradient(circle,rgba(184,112,64,0.14) 0%,transparent 70%)}
-.ambient::after{background:radial-gradient(circle,rgba(184,112,64,0.07) 0%,transparent 70%)}
+/* particles */
+.particles span{background:rgba(0,82,165,0.20);box-shadow:0 0 6px rgba(0,82,165,0.18)}
+
+/* ambient */
+.ambient::before{background:radial-gradient(circle,rgba(0,82,165,0.10) 0%,transparent 70%)}
+.ambient::after{background:radial-gradient(circle,rgba(245,194,0,0.07) 0%,transparent 70%)}
 
 /* ── hero ── */
-.hero{background:radial-gradient(ellipse at 40% 30%,#FDF9F5 0%,var(--bg) 70%)}
-.hero h1{font-size:52px;letter-spacing:-0.025em;font-weight:800}
+.hero{background:radial-gradient(ellipse at 40% 30%,#FFFFFF 0%,var(--bg) 70%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-80px;top:-60px;width:400px;height:300px;background:var(--yellow);opacity:0.06;clip-path:polygon(0 0,100% 0,100% 100%,20% 100%);pointer-events:none;z-index:0}
+.hero h1{font-size:52px;letter-spacing:-0.03em;font-weight:800}
 @media(min-width:480px){.hero h1{font-size:66px}}
 @media(max-width:360px){.hero h1{font-size:44px}}
-.hero h1 .grad{background:linear-gradient(180deg,#1A1108 0%,#6B5240 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-eyebrow{background:rgba(184,112,64,0.09);border-color:rgba(184,112,64,0.26);color:var(--accent)}
+.hero h1 .grad{background:linear-gradient(180deg,var(--blue) 0%,var(--blue-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{color:var(--blue)}
+.hero-eyebrow{background:rgba(0,82,165,0.07);border-color:rgba(0,82,165,0.22);color:var(--blue)}
 .hero-sub{color:var(--ice-2)}
 .hero-sub b{color:var(--text)}
-.time-chip{background:rgba(184,112,64,0.09);border-color:rgba(184,112,64,0.26);color:var(--accent)}
+.time-chip{background:rgba(0,82,165,0.07);border-color:rgba(0,82,165,0.22);color:var(--blue)}
 
 /* floating shapes — injetadas via JS */
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.hero-shape{position:absolute;pointer-events:none;z-index:0;border-radius:50%}
-.hero-shape-1{width:320px;height:320px;top:-60px;right:-80px;background:radial-gradient(circle,#B87040,transparent 70%);opacity:.07;animation:float 7s ease-in-out infinite}
-.hero-shape-2{width:180px;height:180px;bottom:40px;left:-40px;background:#E8C9A0;opacity:.10;animation:float 7s ease-in-out 2s infinite}
-.hero-shape-3{width:200px;height:120px;top:40%;right:10%;background:#B87040;opacity:.05;animation:float 7s ease-in-out 4s infinite;border-radius:50%}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-14px) rotate(var(--rot,0deg))}}
+.hero-shape{position:absolute;pointer-events:none;z-index:0}
+.hero-shape-1{width:6px;height:80px;top:20%;right:14%;background:var(--yellow);opacity:.55;animation:float 6s ease-in-out infinite;border-radius:3px;--rot:12deg}
+.hero-shape-2{width:70px;height:70px;bottom:60px;left:8%;background:var(--blue);opacity:.08;animation:float 7s ease-in-out 1.5s infinite;border-radius:50%}
+.hero-shape-3{width:5px;height:50px;top:55%;right:6%;background:var(--red);opacity:.40;animation:float 8s ease-in-out 3s infinite;border-radius:3px;--rot:-8deg}
 
-/* plate scene — mantém frame escuro */
-.plate-scene{background:radial-gradient(120% 80% at 50% 110%,rgba(184,112,64,0.10) 0%,transparent 60%),linear-gradient(180deg,#0c1118 0%,#070a0f 100%)}
+/* plate scene */
+.plate-scene{background:radial-gradient(120% 80% at 50% 110%,rgba(0,82,165,0.10) 0%,transparent 60%),linear-gradient(180deg,#0c1118 0%,#070a0f 100%)}
 
 /* trust row */
 .trust-row{border-color:var(--border)}
@@ -1015,54 +1028,55 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .trust-row .div{background:var(--border)}
 .cta-foot{color:var(--ice-3)}
 
-/* ── botões CTA ── */
+/* ── botões CTA — azul autoridade ── */
 .btn-whats{
-  background:linear-gradient(180deg,#CE8855 0%,var(--accent) 60%,var(--accent-hover) 100%);
-  color:var(--gold-ink);
-  box-shadow:var(--shadow-whats),inset 0 1px 0 rgba(255,255,255,0.28),inset 0 -2px 4px rgba(0,0,0,0.14);
+  background:linear-gradient(180deg,#1A6FCC 0%,var(--blue) 60%,var(--blue-dark) 100%);
+  color:#FFFFFF;
+  box-shadow:var(--shadow-whats),inset 0 1px 0 rgba(255,255,255,0.22),inset 0 -2px 4px rgba(0,0,0,0.16);
 }
-.btn-whats::before{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.28) 50%,transparent 70%)}
-.btn-whats svg{color:var(--gold-ink)}
-.btn-whats:hover{background:linear-gradient(180deg,#CE8855 0%,var(--accent-hover) 100%);transform:scale(1.03) translateY(-1px);box-shadow:0 8px 28px var(--accent-glow)}
+.btn-whats::before{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.20) 50%,transparent 70%)}
+.btn-whats svg{color:#FFFFFF}
+.btn-whats:hover{background:linear-gradient(180deg,#1A6FCC 0%,var(--blue-dark) 100%);transform:scale(1.03) translateY(-1px);box-shadow:0 8px 28px var(--accent-glow)}
 .btn-whats:active{transform:scale(0.985)}
-.sticky-cta .go{background:linear-gradient(180deg,#CE8855 0%,var(--accent) 100%);color:var(--gold-ink);box-shadow:0 8px 20px -6px var(--accent-glow)}
+.sticky-cta .go{background:linear-gradient(180deg,#1A6FCC 0%,var(--blue) 100%);color:#FFFFFF;box-shadow:0 8px 20px -6px var(--accent-glow)}
 @keyframes gopulse{0%,100%{transform:scale(1);box-shadow:0 8px 20px -6px var(--accent-glow)}50%{transform:scale(1.03);box-shadow:0 10px 28px -4px var(--accent-glow)}}
 
-/* ── cards / superfícies — shadow multicamada ── */
+/* ── cards / superfícies ── */
 .sol-card,.pc,.pain-step,.google-card,.review,.faq-item,.deliv-stat{
   background:var(--surface);
   border-color:var(--border);
-  box-shadow:0 1px 3px var(--shadow),0 8px 24px var(--shadow),inset 0 1px 0 rgba(255,255,255,0.60);
+  box-shadow:0 1px 3px var(--shadow),0 8px 24px var(--shadow),inset 0 1px 0 rgba(255,255,255,0.80);
 }
+.sol-card:hover,.pc:hover{border-color:rgba(0,82,165,0.30) !important}
 
 /* ── pain ── */
 .pain{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-1) 100%)}
-.pain-step .ic{background:rgba(160,120,80,0.08);border-color:var(--border);color:var(--ice-2)}
+.pain-step .ic{background:rgba(0,82,165,0.06);border-color:var(--border);color:var(--ice-2)}
 .pain-step h4{color:var(--text)}
 .pain-step p{color:var(--ice-3)}
-.pain-step .tag{color:#C05A38;background:rgba(192,90,56,0.09);border-color:rgba(192,90,56,0.22)}
-.pain-answer{background:linear-gradient(135deg,rgba(184,112,64,0.10) 0%,rgba(184,112,64,0.03) 100%);border-color:rgba(184,112,64,0.26)}
-.pain-answer::before{background:radial-gradient(120% 100% at 100% 0%,rgba(184,112,64,0.16) 0%,transparent 60%)}
+.pain-step .tag{color:var(--red);background:rgba(204,34,0,0.08);border-color:rgba(204,34,0,0.22)}
+.pain-answer{background:linear-gradient(135deg,rgba(0,82,165,0.07) 0%,rgba(0,82,165,0.02) 100%);border-color:rgba(0,82,165,0.22)}
+.pain-answer::before{background:radial-gradient(120% 100% at 100% 0%,rgba(0,82,165,0.12) 0%,transparent 60%)}
 .pain-answer h3{color:var(--text)}
-.pain-answer h3 em{color:var(--accent)}
+.pain-answer h3 em{color:var(--blue)}
 .pain-answer p{color:var(--ice-2)}
 
 /* ── solution ── */
 .sol{background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg) 100%)}
-.sol::before{background:radial-gradient(circle,rgba(184,112,64,0.07) 0%,transparent 70%)}
-.sol-card::before{background:radial-gradient(circle,rgba(184,112,64,0.06) 0%,transparent 70%)}
+.sol::before{background:radial-gradient(circle,rgba(0,82,165,0.05) 0%,transparent 70%)}
+.sol-card::before{background:radial-gradient(circle,rgba(0,82,165,0.04) 0%,transparent 70%)}
 .sol-card .num{color:var(--ice-4)}
 .sol-card h4{color:var(--text)}
 .sol-card p{color:var(--ice-3)}
-.sol-card .ic{background:linear-gradient(180deg,rgba(184,112,64,0.16) 0%,rgba(184,112,64,0.04) 100%);border-color:rgba(184,112,64,0.26);color:var(--accent);box-shadow:0 0 24px -4px rgba(184,112,64,0.28) inset,0 6px 16px -6px rgba(184,112,64,0.36)}
-.sol-card.gold .ic{background:linear-gradient(180deg,rgba(184,112,64,0.22) 0%,rgba(184,112,64,0.05) 100%);border-color:rgba(184,112,64,0.32);color:var(--accent-hover);box-shadow:0 0 24px -4px rgba(184,112,64,0.32) inset,0 6px 16px -6px rgba(184,112,64,0.42)}
+.sol-card .ic{background:linear-gradient(180deg,rgba(0,82,165,0.12) 0%,rgba(0,82,165,0.03) 100%);border-color:rgba(0,82,165,0.22);color:var(--blue);box-shadow:0 0 24px -4px rgba(0,82,165,0.22) inset,0 6px 16px -6px rgba(0,82,165,0.30)}
+.sol-card.gold .ic{background:linear-gradient(180deg,rgba(245,194,0,0.18) 0%,rgba(245,194,0,0.04) 100%);border-color:rgba(245,194,0,0.35);color:#8A6A00;box-shadow:0 0 24px -4px rgba(245,194,0,0.28) inset,0 6px 16px -6px rgba(245,194,0,0.36)}
 
 /* ── delivery ── */
 .deliv{background:var(--bg)}
-.deliv-map{background:radial-gradient(80% 60% at 50% 50%,#1a1208 0%,#0e0a04 70%,#080604 100%)}
+.deliv-map{background:radial-gradient(80% 60% at 50% 50%,#0a1030 0%,#050814 70%,#030510 100%)}
 .deliv-stat .row{color:var(--ice-2)}
 .deliv-stat .row b{color:var(--text)}
-.deliv-stat .px{color:var(--accent)}
+.deliv-stat .px{color:var(--blue)}
 
 /* ── preços ── */
 .prices{background:var(--bg-1)}
@@ -1072,74 +1086,77 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .pc .val{color:var(--text)}
 .pc .ft{color:var(--ice-4)}
 .pc.featured{
-  background:linear-gradient(180deg,rgba(184,112,64,0.10) 0%,rgba(184,112,64,0.02) 100%);
-  border:2px solid var(--accent-soft);
-  box-shadow:0 0 0 5px rgba(184,112,64,0.10),0 12px 32px var(--shadow);
+  background:linear-gradient(180deg,rgba(245,194,0,0.10) 0%,rgba(245,194,0,0.02) 100%);
+  border:2px solid var(--yellow) !important;
+  box-shadow:0 0 0 5px rgba(245,194,0,0.12),0 12px 32px var(--shadow);
 }
-.pc.featured .cat{display:inline-block;background:var(--accent);color:var(--gold-ink);font-size:11px;border-radius:20px;padding:4px 12px;font-family:inherit;letter-spacing:0.04em}
-.pc.featured .val{color:var(--accent)}
-.pc-wide .pill{background:rgba(160,120,80,0.08);border-color:var(--border);color:var(--ice-2)}
+.pc.featured .cat{display:inline-block;background:var(--yellow);color:var(--gold-ink);font-size:11px;border-radius:20px;padding:4px 12px;font-family:inherit;letter-spacing:0.04em}
+.pc.featured .val{color:var(--blue)}
+.pc-wide .pill{background:rgba(0,82,165,0.07);border-color:var(--border);color:var(--ice-2)}
 
 /* ── social proof ── */
 .social{background:var(--bg)}
-.g-stars{color:var(--accent)}
+.g-stars{color:#D4A800}
 .g-stars b{color:var(--text)}
 .g-sub{color:var(--ice-3)}
-.review .stars{color:var(--accent)}
+.review .stars{color:#D4A800}
 .review .body{color:var(--ice-2)}
 .review .who b{color:var(--text)}
 .review .who span{color:var(--ice-4)}
 .review .gq{color:var(--border);opacity:1}
-.review:hover{border-color:rgba(160,120,80,0.22);box-shadow:0 16px 40px var(--shadow)}
-.dots span{background:rgba(160,120,80,0.18)}
-.dots span.active{background:var(--accent);width:18px;border-radius:3px}
-.storefront{background:linear-gradient(180deg,transparent 50%,rgba(247,240,232,0.65) 100%),repeating-linear-gradient(90deg,#D4C4AE 0 6px,#E8DDD0 6px 14px)}
+.review:hover{border-color:rgba(0,82,165,0.22);box-shadow:0 16px 40px var(--shadow)}
+.dots span{background:rgba(0,82,165,0.15)}
+.dots span.active{background:var(--blue);width:18px;border-radius:3px}
+.storefront{background:linear-gradient(180deg,transparent 50%,rgba(245,247,250,0.65) 100%),repeating-linear-gradient(90deg,#D0D8E8 0 6px,#E4E8F0 6px 14px)}
 .storefront::after{color:var(--text)}
-.sf-badge{background:rgba(247,240,232,0.90);color:var(--text);border-color:var(--border)}
+.sf-badge{background:rgba(245,247,250,0.92);color:var(--text);border-color:var(--border)}
 .sf-meta{color:var(--text)}
-.sf-rate{color:var(--accent)}
+.sf-rate{color:#D4A800}
 
-/* ── urgência — mantém escuro ── */
-.urg{background:linear-gradient(180deg,var(--urgent-bg) 0%,#120D06 100%)}
-.urg .eyebrow{color:rgba(232,201,160,0.75)}
-.urg .eyebrow .num{color:var(--accent-soft)}
+/* ── urgência — dark + yellow CTA ── */
+.urg{background:linear-gradient(180deg,var(--urgent-bg) 0%,#050810 100%)}
+.urg .eyebrow{color:rgba(245,194,0,0.65)}
+.urg .eyebrow .num{color:var(--yellow)}
 .urg h2{color:var(--urgent-text);letter-spacing:-0.025em;font-weight:800}
-.urg-icon{background:linear-gradient(180deg,var(--accent) 0%,var(--accent-hover) 100%);color:var(--gold-ink);box-shadow:0 10px 30px -8px var(--accent-glow)}
-.urg-list li{background:rgba(232,201,160,0.06);border-left-color:var(--accent-soft);color:var(--urgent-text)}
-.urg-list li svg{color:var(--accent-soft)}
+.urg-icon{background:linear-gradient(180deg,var(--red) 0%,#991A00 100%);color:#FFFFFF;box-shadow:0 10px 30px -8px rgba(204,34,0,0.45)}
+.urg-list li{background:rgba(245,194,0,0.05);border-left-color:var(--yellow);color:var(--urgent-text)}
+.urg-list li svg{color:var(--yellow)}
 .urg-list li b{color:var(--urgent-text)}
+.urg .btn-whats{background:linear-gradient(180deg,#FFD84D 0%,var(--yellow) 60%,var(--yellow-dark) 100%);color:var(--gold-ink) !important;box-shadow:0 10px 30px -8px rgba(245,194,0,0.55),0 0 0 1px rgba(245,194,0,0.22),inset 0 1px 0 rgba(255,255,255,0.45),inset 0 -2px 4px rgba(0,0,0,0.12)}
+.urg .btn-whats svg{color:var(--gold-ink) !important}
+.urg .btn-whats:hover{background:linear-gradient(180deg,#FFD84D 0%,var(--yellow-dark) 100%)}
 
 /* ── faq ── */
 .faq{background:var(--bg-1)}
-.faq-item[open]{background:rgba(184,112,64,0.04);border-color:rgba(184,112,64,0.24)}
+.faq-item[open]{background:rgba(0,82,165,0.04);border-color:rgba(0,82,165,0.22)}
 .faq-item summary{color:var(--text)}
-.faq-item summary::after{background:rgba(160,120,80,0.08);border-color:var(--border);color:var(--ice-2)}
-.faq-item[open] summary::after{background:var(--accent);color:var(--gold-ink);border-color:var(--accent)}
+.faq-item summary::after{background:rgba(0,82,165,0.06);border-color:var(--border);color:var(--ice-2)}
+.faq-item[open] summary::after{background:var(--blue);color:#FFFFFF;border-color:var(--blue)}
 .faq-answer{color:var(--ice-2)}
 .faq-answer b{color:var(--text)}
 
 /* eyebrows & section headers */
 .eyebrow{color:var(--ice-3)}
-.eyebrow .num{color:var(--accent)}
+.eyebrow .num{color:var(--blue)}
 .eyebrow .line{background:var(--border)}
 .section-title{color:var(--text)}
-.section-title em{color:var(--accent)}
+.section-title em{color:var(--blue)}
 .section-sub{color:var(--ice-2)}
 
 /* ── final CTA ── */
-.final{background:radial-gradient(80% 60% at 50% 0%,rgba(184,112,64,0.08) 0%,transparent 70%),linear-gradient(180deg,var(--bg) 0%,var(--bg-1) 100%)}
+.final{background:radial-gradient(80% 60% at 50% 0%,rgba(0,82,165,0.06) 0%,transparent 70%),linear-gradient(180deg,var(--bg) 0%,var(--bg-1) 100%)}
 .final h2{color:var(--text)}
-.final h2 em{color:var(--accent)}
+.final h2 em{color:var(--blue)}
 .final p{color:var(--ice-2)}
 
 /* ── footer ── */
-footer{background:#E4D8C8;border-top-color:var(--border);color:var(--ice-3)}
+footer{background:#E4E8F0;border-top-color:var(--border);color:var(--ice-3)}
 footer .info b{color:var(--text)}
 footer .info span,footer .info a{color:var(--ice-2)}
 footer .legal{border-top-color:var(--border);color:var(--ice-4)}
 
 /* ── sticky CTA ── */
-.sticky-cta .inner{background:linear-gradient(180deg,var(--surface) 0%,#F0E8DC 100%);border-color:var(--border);box-shadow:0 -8px 30px -8px rgba(80,45,15,0.14),0 0 0 1px var(--border)}
+.sticky-cta .inner{background:linear-gradient(180deg,var(--surface) 0%,#EDF0F5 100%);border-color:var(--border);box-shadow:0 -8px 30px -8px rgba(0,20,60,0.14),0 0 0 1px var(--border)}
 .sticky-cta .ms b{color:var(--text)}
 .sticky-cta .ms span{color:var(--ice-3)}
 
@@ -1188,12 +1205,11 @@ p,li{line-height:1.75}
     </div>
 
     <h1>
-      <span class="grad">Perdeu a placa?</span><br/>
-      <em>A gente resolve</em><br/>
-      <span class="strike">hoje.</span>
+      <span class="grad">Placa Mercosul</span><br/>
+      em Bauru, <em>hoje.</em>
     </h1>
 
-    <p class="hero-sub">Autorização <b>DETRAN-SP</b>, estampagem oficial e instalação <b>numa tarde</b>. Com delivery em Bauru.</p>
+    <p class="hero-sub">Emplacadora autorizada <b>DETRAN-SP</b>. Carro novo, transferência ou segunda via — estampagem e instalação <b>numa tarde</b>.</p>
 
     <!-- ============ PLATE SCENE ============ -->
     <div class="plate-scene" id="plateScene">
@@ -1238,10 +1254,10 @@ p,li{line-height:1.75}
     <div class="cta-block">
       <a class="btn-whats" href="https://wa.me/5514997437445?text=Perdi%20%2F%20preciso%20trocar%20minha%20placa%20agora" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.711.307 1.265.489 1.697.626.713.226 1.362.194 1.875.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        <span>Perdi / preciso trocar minha placa agora</span>
+        <span>Quero emplacular agora</span>
       </a>
       <div class="cta-foot">
-        <span>Resposta rápida</span><span class="sep"></span><span>orientação gratuita</span>
+        <span>Orientação gratuita</span><span class="sep"></span><span>Resposta em minutos</span>
       </div>
     </div>
 
@@ -1267,7 +1283,7 @@ p,li{line-height:1.75}
   <section class="pain" data-screen-label="02 Pain">
     <div class="r">
       <div class="eyebrow"><span class="num">01</span><span class="line"></span> O problema</div>
-      <h2 class="section-title">Você perde horas tentando<br/>entender o <em>processo</em>.</h2>
+      <h2 class="section-title">Emplacar parece complicado.<br/><em>A gente simplifica.</em></h2>
     </div>
 
     <div class="pain-flow stagger">
@@ -1275,21 +1291,21 @@ p,li{line-height:1.75}
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M7 14h4"/></svg>
         </div>
-        <div class="txt"><h4>DETRAN online</h4><p>Login GOV.BR, formulário, autorização…</p></div>
+        <div class="txt"><h4>DETRAN online</h4><p>GOV.BR, formulário, prazo de retorno…</p></div>
         <div class="tag">~2h</div>
       </div>
       <div class="pain-step">
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16"/><path d="M6 19v-8l6-5 6 5v8"/><path d="M10 19v-5h4v5"/></svg>
         </div>
-        <div class="txt"><h4>Poupatempo</h4><p>Senha, fila, retorno em outro dia.</p></div>
+        <div class="txt"><h4>Poupatempo</h4><p>Senha, fila, e volta outro dia.</p></div>
         <div class="tag">~3h</div>
       </div>
       <div class="pain-step">
         <div class="ic">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
         </div>
-        <div class="txt"><h4>B.O. da placa</h4><p>Boletim de ocorrência, segunda via…</p></div>
+        <div class="txt"><h4>Despachante</h4><p>Taxa extra, intermediário, demora.</p></div>
         <div class="tag">~1h</div>
       </div>
       <div class="pain-step">
@@ -1303,7 +1319,7 @@ p,li{line-height:1.75}
 
     <div class="pain-answer r">
       <h3>A gente resolve em <em>menos de uma tarde</em>.</h3>
-      <p>Um lugar. Um WhatsApp. Tudo oficial — autorização, estampagem e instalação.</p>
+      <p>Um WhatsApp. Uma visita. Tudo oficial — autorização, estampagem e instalação.</p>
     </div>
   </section>
 
@@ -1312,7 +1328,7 @@ p,li{line-height:1.75}
     <div class="r">
       <div class="eyebrow"><span class="num">02</span><span class="line"></span> A solução</div>
       <h2 class="section-title">Tudo num lugar só.<br/><em>Numa tarde.</em></h2>
-      <p class="section-sub">Você manda mensagem, a gente faz o resto. Sem ir em outro lugar, sem esperar nada chegar.</p>
+      <p class="section-sub">Você manda mensagem, a gente cuida do resto. Sem filas, sem intermediários, sem espera.</p>
     </div>
 
     <div class="sol-grid stagger">
@@ -1354,7 +1370,7 @@ p,li{line-height:1.75}
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
         </div>
         <div class="body">
-          <h4>Não sabe por onde começar?</h4>
+          <h4>Tirar dúvida grátis no WhatsApp</h4>
           <p>Manda uma mensagem — a gente te orienta sem cobrar nada.</p>
         </div>
         <div class="arr">
@@ -1369,7 +1385,7 @@ p,li{line-height:1.75}
     <div class="r">
       <div class="eyebrow"><span class="num">03</span><span class="line"></span> Delivery</div>
       <h2 class="section-title">A gente vai<br/><em>até você.</em></h2>
-      <p class="section-sub">Casa, empresa ou oficina. Você fala onde, a gente leva a placa pronta e instala no local.</p>
+      <p class="section-sub">Casa, empresa ou oficina. Você fala onde, a gente leva a placa pronta e instala no local — sem custo extra dentro de Bauru.</p>
     </div>
 
     <div class="deliv-map r" aria-hidden="true">
@@ -1435,12 +1451,12 @@ p,li{line-height:1.75}
     <div class="r">
       <div class="eyebrow"><span class="num">04</span><span class="line"></span> Preços</div>
       <h2 class="section-title">Sem letra miúda.<br/><em>Sem "depende".</em></h2>
-      <p class="section-sub">Casos mais comuns têm preço fixo. Caminhão, 0 km ou delivery: consulta rápida no WhatsApp.</p>
+      <p class="section-sub">Preço fixo nos casos mais comuns. Caminhão, 0 km ou frota: orçamento na hora pelo WhatsApp.</p>
     </div>
 
     <div class="price-cards stagger">
       <div class="pc">
-        <div class="cat">Moto</div>
+        <div class="cat">Moto · 1 placa</div>
         <h4>1 placa Mercosul</h4>
         <div class="desc">Instalada na hora.</div>
         <div class="val"><span class="cur">R$</span>80</div>
@@ -1448,14 +1464,14 @@ p,li{line-height:1.75}
       </div>
       <div class="pc featured">
         <div class="cat">Mais pedido</div>
-        <h4>Carro · par</h4>
+        <h4>Carro · par completo</h4>
         <div class="desc">Dianteira + traseira, com instalação.</div>
         <div class="val"><span class="cur">R$</span>160</div>
         <div class="ft">Pagamento: consultar</div>
       </div>
       <div class="pc pc-wide">
         <div class="body">
-          <div class="cat">Caminhão · 0 km · delivery</div>
+          <div class="cat">Frota · Caminhão · 0 km</div>
           <h4>Casos especiais</h4>
           <div class="desc">Orçamento na hora pelo WhatsApp.</div>
         </div>
@@ -1546,26 +1562,26 @@ p,li{line-height:1.75}
       <div class="urg-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L1 21h22z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
       </div>
-      <h2>Não dá pra empurrar com a barriga.</h2>
+      <h2>Placa irregular gera <em>multa e apreensão.</em></h2>
     </div>
     <ul class="urg-list stagger">
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L1 21h22z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-        Rodar sem placa pode gerar <b>multa e apreensão</b>.
+        Circular sem placa é infração gravíssima: <b>multa, pontos e apreensão do veículo</b>.
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        Quanto antes resolver, <b>menor a dor de cabeça</b>.
+        Quanto mais tempo passa, <b>maior o risco de abordagem</b> e mais complicado fica.
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
-        <b>Você resolve isso hoje.</b> A gente abre agora.
+        <b>A gente resolve hoje.</b> Uma mensagem e você já sai com a placa.
       </li>
     </ul>
     <div class="cta-block r">
       <a class="btn-whats" href="https://wa.me/5514997437445?text=Quero%20resolver%20agora" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-        <span>Resolver agora — chamar no WhatsApp</span>
+        <span>Regularizar agora — WhatsApp</span>
       </a>
     </div>
   </section>
@@ -1577,6 +1593,10 @@ p,li{line-height:1.75}
       <h2 class="section-title">Perguntas <em>frequentes</em>.</h2>
     </div>
     <div class="faq-list r">
+      <details class="faq-item">
+        <summary>Atende carro novo e transferência também?</summary>
+        <div class="faq-answer">Sim — é nosso serviço principal. <b>Emplacamos carros 0 km, fazemos transferência de placa e segunda via</b>. Manda mensagem que a gente te diz exatamente o que trazer.</div>
+      </details>
       <details class="faq-item">
         <summary>Preciso ir ao DETRAN antes?</summary>
         <div class="faq-answer">Depende do caso. <b>Manda mensagem que a gente te orienta exatamente</b> o que precisa antes de sair de casa — sem custo.</div>
@@ -1607,12 +1627,12 @@ p,li{line-height:1.75}
   <!-- ============ FINAL CTA ============ -->
   <section class="final" data-screen-label="09 Final">
     <div class="r">
-      <h2>Pronto pra <em>resolver?</em></h2>
-      <p>Estou em Bauru. Em poucos minutos a gente te diz exatamente o que fazer.</p>
+      <h2>Pronto pra <em>emplacular?</em></h2>
+      <p>Estou em Bauru. Em minutos a gente te diz exatamente o que precisa.</p>
       <div class="cta-block">
         <a class="btn-whats" href="https://wa.me/5514997437445?text=Estou%20em%20Bauru%20e%20quero%20resolver%20hoje" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-          <span>Quero resolver hoje</span>
+          <span>Quero emplacular hoje</span>
         </a>
         <div class="cta-foot"><span>(14) 99743-7445</span><span class="sep"></span><span>Resposta rápida</span></div>
       </div>
@@ -1640,7 +1660,7 @@ p,li{line-height:1.75}
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
     <div class="ms">
-      <b>Resolver minha placa agora</b>
+      <b>Emplacular agora</b>
       <span><span class="lv"></span> Aberto · responde em minutos</span>
     </div>
     <a class="go" href="https://wa.me/5514997437445?text=Resolver%20minha%20placa%20agora" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
@@ -1798,9 +1818,9 @@ p,li{line-height:1.75}
 </script>
 
 <script>
-/* nude theme — shapes flutuantes + scroll reveal */
+/* traffic · plate theme — shapes geométricas + scroll reveal */
 (function(){
-  /* inject floating shapes into hero */
+  /* inject geometric shapes into hero */
   var hero = document.querySelector('.hero');
   if (hero) {
     [1,2,3].forEach(function(n){
@@ -1812,18 +1832,18 @@ p,li{line-height:1.75}
 
   /* scroll reveal com fadeUp */
   var els = document.querySelectorAll(
-    'section:not(.hero), .sol-card, .pain-step, .pc, .review, .faq-item, .google-card'
+    'section:not(.hero), article, .sol-card, .pain-step, .pc, .review, .faq-item, .google-card, .deliv-stat'
   );
   els.forEach(function(el){ el.classList.add('anim-ready'); });
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e, i){
       if (e.isIntersecting) {
-        setTimeout(function(){ e.target.classList.add('visible'); }, i * 80);
+        setTimeout(function(){ e.target.classList.add('visible'); }, i * 70);
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.10 });
 
   els.forEach(function(el){ io.observe(el); });
 })();
