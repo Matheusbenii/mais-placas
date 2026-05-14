@@ -3,6 +3,13 @@
 ---
 
 ## 2026-05-13
+- **Animação:** flutuação contínua na placa — `@keyframes plate-float` no `.plate-stage`, translateY 0 → −10px, período 3.2s, delay 4.2s (após plate-snap)
+- **Acessibilidade:** `prefers-reduced-motion` desativa o float e fixa o transform de centralização
+- **Seção impactada:** CSS
+
+---
+
+## 2026-05-13
 - **Script:** corrigido replay da placa ao clicar — substituído `cloneNode` (quebrado) por restart via reflow (`animation = none → offsetWidth → animation = ''`)
 - **UX:** cursor pointer e tooltip "Clique para girar a placa" adicionados à plate-scene
 - **Seção impactada:** Script
