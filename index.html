@@ -1729,11 +1729,16 @@ p,li{line-height:1.75}
 (function(){
   const scene = document.getElementById('plateScene');
   if (!scene) return;
-  scene.addEventListener('click', () => {
-    const clones = scene.cloneNode(true);
-    scene.replaceWith(clones);
-    // re-attach listener on new node
-    clones.addEventListener('click', arguments.callee);
+  scene.style.cursor = 'pointer';
+  scene.title = 'Clique para girar a placa';
+
+  scene.addEventListener('click', function() {
+    const plate = scene.querySelector('.plate');
+    if (!plate) return;
+    // Remove a animação, força o reflow e reaplica — reinicia do zero
+    plate.style.animation = 'none';
+    void plate.offsetWidth; // flush layout
+    plate.style.animation = '';
   });
 })();
 
