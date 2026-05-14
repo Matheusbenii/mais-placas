@@ -3,6 +3,7 @@
 ---
 
 ## 2026-05-13
+- **Animação:** flutuação intensificada — keyframes assimétricos (0/25/55/78/100%), translateY até −20px, rotateZ ±1.6deg desfasado, scale até 1.025, período 2.6s
 - **Animação:** flutuação contínua na placa — `@keyframes plate-float` no `.plate-stage`, translateY 0 → −10px, período 3.2s, delay 4.2s (após plate-snap)
 - **Acessibilidade:** `prefers-reduced-motion` desativa o float e fixa o transform de centralização
 - **Seção impactada:** CSS
