@@ -187,10 +187,15 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacin
 
 /* the plate itself */
 .plate-stage{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  position:absolute;left:50%;top:50%;
   width:78%;max-width:330px;aspect-ratio:3/1;
   perspective:800px;
   z-index:4;
+  animation:plate-float 3.2s ease-in-out 4.2s infinite;
+}
+@keyframes plate-float{
+  0%,100%{transform:translate(-50%,-50%) translateY(0px)}
+  50%    {transform:translate(-50%,-50%) translateY(-10px)}
 }
 .plate{
   position:relative;width:100%;height:100%;
@@ -1183,6 +1188,7 @@ p,li{line-height:1.75}
 @media(prefers-reduced-motion:reduce){
   .hero-shape-1,.hero-shape-2,.hero-shape-3,.anim-ready{animation:none !important;opacity:1 !important}
   .topbar,.hero-eyebrow,.hero h1,.hero-sub,.hero .cta-block,.trust-row{animation:none !important;opacity:1 !important;transform:none !important}
+  .plate-stage{animation:none !important;transform:translate(-50%,-50%) !important}
 }
 </style>
 </head>
