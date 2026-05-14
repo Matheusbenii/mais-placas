@@ -3,6 +3,13 @@
 ---
 
 ## 2026-05-13
+- **Script:** corrigido replay da placa ao clicar — substituído `cloneNode` (quebrado) por restart via reflow (`animation = none → offsetWidth → animation = ''`)
+- **UX:** cursor pointer e tooltip "Clique para girar a placa" adicionados à plate-scene
+- **Seção impactada:** Script
+
+---
+
+## 2026-05-13
 - **Animação da placa:** substituída `plate-rise` por `plate-spin` — 3 rotações 360° no eixo Y (0 → 1080deg), 1.8s, easing `cubic-bezier(0.15,0.5,0.3,1)`
 - **CSS:** delay do `plate-snap` ajustado de 3.5s → 3.8s para sincronizar com a nova duração
 - **Seção impactada:** CSS — `@keyframes plate-spin`, `.plate`
