@@ -191,11 +191,14 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacin
   width:78%;max-width:330px;aspect-ratio:3/1;
   perspective:800px;
   z-index:4;
-  animation:plate-float 3.2s ease-in-out 4.2s infinite;
+  animation:plate-float 2.6s ease-in-out 4.2s infinite;
 }
 @keyframes plate-float{
-  0%,100%{transform:translate(-50%,-50%) translateY(0px)}
-  50%    {transform:translate(-50%,-50%) translateY(-10px)}
+  0%  {transform:translate(-50%,-50%) translateY(0px)   rotateZ(0deg)    scale(1)}
+  25% {transform:translate(-50%,-50%) translateY(-14px) rotateZ(1.4deg)  scale(1.018)}
+  55% {transform:translate(-50%,-50%) translateY(-20px) rotateZ(-0.6deg) scale(1.025)}
+  78% {transform:translate(-50%,-50%) translateY(-11px) rotateZ(-1.6deg) scale(1.012)}
+  100%{transform:translate(-50%,-50%) translateY(0px)   rotateZ(0deg)    scale(1)}
 }
 .plate{
   position:relative;width:100%;height:100%;
