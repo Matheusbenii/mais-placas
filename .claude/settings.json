@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git diff *)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "cd 'C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\MAIS PLACAS'; $unpushed = git log origin/master..HEAD --oneline 2>$null; if ($unpushed) { git push origin master 2>$null }",
+            "statusMessage": "Publicando no GitHub...",
+            "timeout": 30,
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
